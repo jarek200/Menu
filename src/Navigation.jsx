@@ -1,9 +1,7 @@
 export default function Navigation({ handleClick, cat, idx }) {
   return (
-    <div key={idx} className='btn-container'>
-      <button onClick={() => handleClick(cat)} className='filter-btn'>
-        {cat}
-      </button>
-    </div>
+    <button key={idx} onClick={() => handleClick(cat)} className='btn'>
+      {cat}
+    </button>
   )
 }

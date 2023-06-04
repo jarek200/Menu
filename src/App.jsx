@@ -2,6 +2,7 @@ import { useState } from 'react'
 import SingleItem from './SingleItem'
 import menu from './data'
 import Navigation from './Navigation'
+import Title from './Title'
 
 const App = () => {
   const [menuItems, setMenuItems] = useState(menu)
@@ -10,13 +11,19 @@ const App = () => {
 
   return (
     <main className='menu'>
-      <h1 className='title '>Our Menu</h1>
-      {['all', ...uniqueCategories].map((cat, idx) => (
-        <Navigation key={idx} cat={cat} handleClick={handleClick} />
-      ))}
-      {menuItems.map(item => (
-        <SingleItem key={item.id} {...item} />
-      ))}
+      <section className='menu'>
+        <Title text='Our Menu' />
+      </section>
+      <section className='btn-container'>
+        {['all', ...uniqueCategories].map((cat, idx) => (
+          <Navigation key={idx} cat={cat} handleClick={handleClick} />
+        ))}
+      </section>
+      <section className='section-center'>
+        {menuItems.map(item => (
+          <SingleItem key={item.id} {...item} />
+        ))}
+      </section>
     </main>
   )
 }
